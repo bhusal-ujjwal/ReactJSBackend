@@ -1,0 +1,1 @@
+// genre type for novel 
