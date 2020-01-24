@@ -34,11 +34,6 @@ const novelSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    genre:
-    {
-        type: String,
-        required: true
-    },
     chaptercontent: [chaptercontentSchema],
 },{timestamps:true});
 module.exports = mongoose.model('Novel', novelSchema);
