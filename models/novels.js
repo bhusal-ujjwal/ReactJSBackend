@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const chaptercontentSchema = new mongoose.Schema({
-    note: {
+    novel: {
         type: String,
         required: true
     }
@@ -9,7 +9,8 @@ const novelSchema = new mongoose.Schema({
     name :
     {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     image: {
         type: String
