@@ -27,7 +27,7 @@ module.exports.verifyAdmin = (req, res, next) => {
         return next(err);
     }
     if (req.user.admin !== true) {
-        let err = new Error('Forbidden');
+        let err = new Error('You are not admin!');
         err.status = 403;
         return next(err);
     }
