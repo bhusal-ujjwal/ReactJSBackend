@@ -1,40 +1,32 @@
 const mongoose = require('mongoose');
-const chaptercontentSchema = new mongoose.Schema({
-    novel: {
-        type: String,
-        required: true
-    }
-}, { timestamps: true });
 const novelSchema = new mongoose.Schema({
-    name :
+    novelname:
     {
         type: String,
-        required: true,
-        unique: true
+        //required: true
     },
-    image: {
-        type: String
-    },
-    desc:
+    noveldesc:
     {
         type: String,
-        required: true
+       // required: true
     },
-    author:
-    {
-        type: String,
-        required: true
-    },
-    genre:
-    {
-        type: String,
-        required: true
-    },
-    chapters:
+    rate:
     {
         type: Number,
-        required: true
+        //required: true
     },
-    chaptercontent: [chaptercontentSchema],
+    novelimg:{
+        type:String,
+        //required:true
+    },
+    ncategory:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Category',
+        //required:true
+    },
+    done: {
+        type: Boolean,
+        default: true
+    },
 },{timestamps:true});
 module.exports = mongoose.model('Novel', novelSchema);

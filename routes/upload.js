@@ -25,7 +25,7 @@ const upload = multer({
 const uploadRouter = express.Router();
 
 uploadRouter.route('/')
-    .post(upload.single('imageFile'), (req, res) => {
+    .post(upload.single('myFile'), (req, res) => {
         res.json(req.file);
     });
 
