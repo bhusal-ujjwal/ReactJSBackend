@@ -1,3 +1,4 @@
+//cors indicates protocol. is it http or https.
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require('morgan');
@@ -43,4 +44,4 @@ app.listen(process.env.PORT, () => {
     console.log(`App is running at localhost:${process.env.PORT}`);
 });
 
-//cors indicates protocol. is it http or https.
+
