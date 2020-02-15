@@ -1,6 +1,6 @@
-const Category = require('../../models/categories');
+const Category = require('../../models/Category');
 const mongoose = require('mongoose');
-const testDB = 'mongodb://localhost:27017/demotm_test'
+const testDB = 'mongodb://localhost:27017/abcfinal'
 
 beforeAll(async () => {
     await mongoose.connect(testDB, {
@@ -19,24 +19,24 @@ afterAll(async () => {
 describe('Test of Category Schema', () => {
     test('Should create a new category', () => {
         return Category.create({
-            name: 'Home'
+            name: 'Xianxia'
         }).then((response) => {
-            expect(response.name).toBe('Home')
+            expect(response.name).toBe('Xianxia')
         })
     })
     test('Should update the category', () => {
-        return Category.findOne({ 'name': 'Home' })
+        return Category.findOne({ 'name': 'Xianxia' })
             .then((cat) => {
-                cat.name = 'Personal'
+                cat.name = 'Fantasy'
                 cat.save().then((updatedCat) => {
-                    expect(updatedCat.name).toBe('Personal')
+                    expect(updatedCat.name).toBe('Fantasy')
                 })
             })
     })
     test('Should delete the category', () => {
-        return Category.findOneAndDelete({ 'name': 'Personal' })
+        return Category.findOneAndDelete({ 'name': 'Fantasy' })
             .then((response) => {
-                expect(response.name).toBe('Personal')
+                expect(response.name).toBe('Fantasy')
             })
     })
 })

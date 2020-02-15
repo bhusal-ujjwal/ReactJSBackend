@@ -1,6 +1,6 @@
 const Task = require('../../models/tasks');
 const mongoose = require('mongoose');
-const testDB = 'mongodb://localhost:27017/tmTestingDB'
+const testDB = 'mongodb://localhost:27017/abcfinal'
 beforeAll(async () => {
     await mongoose.connect(testDB, {
         useNewUrlParser: true,
