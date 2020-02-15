@@ -4,12 +4,6 @@ const auth = require("../auth");
 
 const router = express.Router();
 
-router.get("/",auth.verifyUser,(req,res, next)=>{
-    Cart.find({usercart:req.user._id})
-    .then((cart)=>{
-        res.json(cart);
-    }).catch((error)=>next(error))
-})
 
 router.post("/",auth.verifyUser,(req,res,next)=>{
     let cart = new Cart(req.body);
@@ -18,6 +12,14 @@ router.post("/",auth.verifyUser,(req,res,next)=>{
         res.statusCode = 201;
         res.json(cart);
     }).catch(next);
+})
+
+
+router.get("/",auth.verifyUser,(req,res, next)=>{
+    Cart.find({usercart:req.user._id})
+    .then((cart)=>{
+        res.json(cart);
+    }).catch((error)=>next(error))
 })
 
 router.route('/')
