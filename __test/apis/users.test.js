@@ -8,8 +8,8 @@ describe('Users Route Test', () => {
         return axios.post(baseurl + '/signup', {
             firstName: 'ujjwal1',
             lastName: 'ujjwal1',
-            username: 'test123',
-            password: 'test123'
+            username: 'test11234',
+            password: 'test11234'
         }).then((response) => {
             expect(response.data.status).toMatch('Success');
         }).catch((err) => {
@@ -19,8 +19,8 @@ describe('Users Route Test', () => {
     })
     test('login of existing user', () => {
         return axios.post(baseurl + '/login', {
-            username: 'test123',
-            password: 'test123'
+            username: 'test11234',
+            password: 'test11234'
         }).then((response) => {
             token = response.data.token;
             expect(response.status).toBe(200);
@@ -33,8 +33,8 @@ describe('Users Route Test', () => {
     test('User should be able to view profile', () => {
         return axios.get(baseurl + '/me', {
             'headers': { 'Authorization': 'Bearer ' + token }
-        }).then((response) => {
-            expect(response.status).toBe(200);
+        }).then((response) => {  
+              expect(response.status).toBe(200);
         })
     })
 })
