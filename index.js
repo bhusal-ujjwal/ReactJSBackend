@@ -20,7 +20,11 @@ app.use(cors());
 app.use(express.urlencoded({extended: true }));
 app.use(express.static(__dirname + "/public"));
 
-mongoose.connect(process.env.URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+mongoose.set('strictQuery', true);
+
+mongoose.connect(process.env.URL, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true})
     .then((db) => {
         console.log("Successfully connected to MongodB server");
     }, (err) => console.log(err));
